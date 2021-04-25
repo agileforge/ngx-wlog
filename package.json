@@ -1,10 +1,10 @@
 {
   "name": "@agileforge/ngx-wlog",
-  "version": "0.0.1,",
+  "version": "0.0.2",
   "description": "Web application logger",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agileforge/wlog.git"
+    "url": "git+https@github.com:agileforge/ngx-wlog.git"
   },
   "keywords": [
     "log",
@@ -18,9 +18,9 @@
   "author": "Pascal Fluck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/agileforge/wlog/issues"
+    "url": "https://github.com/agileforge/ngx-wlog/issues"
   },
-  "homepage": "https://github.com/agileforge/wlog#readme",
+  "homepage": "https://github.com/agileforge/ngx-wlog#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -39,6 +39,7 @@
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
     "rxjs": "~6.6.0",
+    "stack-trace": "^0.0.10",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
-import { NgxWlogComponent } from './ngx-wlog.component';
-
-
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {WlogConfigService} from './config/wlog-config.service';
+import {WlogConfig} from './config/wlog-config';
 
 @NgModule({
-  declarations: [
-    NgxWlogComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    NgxWlogComponent
-  ]
+    declarations: [],
+    imports: [],
+    exports: []
 })
-export class NgxWlogModule { }
+export class NgxWlogModule {
+    public static forRoot(config: WlogConfig): ModuleWithProviders<NgxWlogModule> {
+        const wlogConfigService = new WlogConfigService();
+        WlogConfigService.config = config;
+        return {
+            ngModule: NgxWlogModule,
+            providers: [
+                {provide: WlogConfigService, useValue: wlogConfigService}
+                // LoggerService => To implements to allow to inject
+            ]
+        };
+    }
+}
