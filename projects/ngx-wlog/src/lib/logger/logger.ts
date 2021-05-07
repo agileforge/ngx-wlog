@@ -8,44 +8,44 @@ export interface Logger {
   /**
    * Log in the trace level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  trace(message: string, obj?: any): void;
+  trace(message: string, ...optionalParams: any[]): void;
 
   /**
    * Log in the debug level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  debug(message: string, obj?: any): void;
+  debug(message: string, ...optionalParams: any[]): void;
 
   /**
    * Log in the info level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  info(message: string, obj?: any): void;
+  info(message: string, ...optionalParams: any[]): void;
 
   /**
    * Log in the warn level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  warn(message: string, obj?: any): void;
+  warn(message: string, ...optionalParams: any[]): void;
 
   /**
    * Log in the error level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  error(message: string, obj?: any): void;
+  error(message: string, ...optionalParams: any[]): void;
 
   /**
    * Log in the fatal level.
    * @param message The log message.
-   * @param obj Data related to log.
+   * @param optionalParams Data related to log.
    */
-  fatal(message: string, obj?: any): void;
+  fatal(message: string, ...optionalParams: any[]): void;
 
 }
 

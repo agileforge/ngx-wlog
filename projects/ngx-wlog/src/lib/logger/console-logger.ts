@@ -10,39 +10,41 @@ export class ConsoleLogger implements Logger {
 
     readonly contextName: string;
 
-    debug(message: string, obj?: any): void {
+    debug(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Debug) {
-            console.log(`%c ${new Date().toISOString()} ${this.name} [DEBUG]`, 'color:white;background:green', message, obj);
+            console.log(`%c ${new Date().toISOString()} ${this.name} [DEBUG]`, 'color:white;background:green', message, ...optionalParams);
         }
     }
 
-    error(message: string, obj?: any): void {
+    error(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Error) {
-            console.log(`%c ${new Date().toISOString()} ${this.name} [ERROR]`, 'color:white;background:red', message, obj);
+            console.log(`%c ${new Date().toISOString()} ${this.name} [ERROR]`, 'color:white;background:red', message, ...optionalParams);
         }
     }
 
-    fatal(message: string, obj?: any): void {
+    fatal(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Fatal) {
-            console.log(`%c ${new Date().toISOString()} ${this.name} [FATAL]`, 'color:red;background:yellow', message, obj);
+            console.log(`%c ${new Date().toISOString()} ${this.name} [FATAL]`, 'color:red;background:yellow', message, ...optionalParams);
         }
     }
 
-    info(message: string, obj?: any): void {
+    info(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Info) {
-            console.log(`%c ${new Date().toISOString()} ${this.name} [INFO ]`, 'color:white;background:blue', message, obj);
+            console.log(`%c ${new Date().toISOString()} ${this.name} [INFO ]`, 'color:white;background:blue', message, ...optionalParams);
         }
     }
 
-    trace(message: string, obj?: any): void {
+    trace(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Trace) {
-            console.log(`%c  ${new Date().toISOString()} ${this.name} [TRACE]`, 'color:white;background:purple', message, obj);
+            console.log(`%c  ${new Date().toISOString()} ${this.name} [TRACE]`, 'color:white;background:purple',
+                message, ...optionalParams);
         }
     }
 
-    warn(message: string, obj?: any): void {
+    warn(message: string, ...optionalParams: any[]): void {
         if (WlogConfigService.config.minLevel <= LogLevel.Warning) {
-            console.log(`%c  ${new Date().toISOString()} ${this.name} [WARN ]`, 'color:white;background:orange', message, obj);
+            console.log(`%c  ${new Date().toISOString()} ${this.name} [WARN ]`, 'color:white;background:orange',
+                message, ...optionalParams);
         }
     }
 
