@@ -1,4 +1,14 @@
+import {LogLevel} from '../config/log-level.enum';
+
 export interface Logger {
+
+    /**
+     * Log in the specified level.
+     * @param level The level of log.
+     * @param message The log message.
+     * @param optionalParams Data related to log.
+     */
+    log(level: LogLevel, message: string, ...optionalParams: any[]): void;
 
     /**
      * Log in the trace level.

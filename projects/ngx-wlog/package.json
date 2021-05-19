@@ -1,7 +1,7 @@
 {
     "name": "@agileforge/ngx-wlog",
-    "version": "0.0.7",
-    "description": "Web application logger",
+    "version": "0.0.8",
+    "description": "Angular web application logger without injection",
     "repository": {
         "type": "git",
         "url": "git+https@github.com:agileforge/ngx-wlog.git"
@@ -13,7 +13,11 @@
         "webapp",
         "browser",
         "angular",
-        "vuejs"
+        "static",
+        "appender",
+        "console",
+        "http",
+        "httpclient"
     ],
     "author": "Pascal Fluck",
     "license": "MIT",

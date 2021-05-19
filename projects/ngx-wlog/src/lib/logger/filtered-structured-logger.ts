@@ -11,12 +11,17 @@ export class FilteredStructuredLogger implements StructuredLogger {
     constructor(
         private logger: StructuredLogger,
         contextFilter: string | RegExp,
-        private minLevel: LogLevel) {
+        private minLevel: LogLevel,
+        private maxLevel: LogLevel) {
+        if (contextFilter === '*') {
+            // Make * (all) RegExp compliant...
+            contextFilter = '.*';
+        }
         this.regExpContextFilter = contextFilter as RegExp ?? new RegExp(contextFilter);
     }
 
     private loggerMatchFilter(level: LogLevel, contextName: string): boolean {
-        return this.minLevel >= level && !!contextName.match(this.regExpContextFilter);
+        return this.minLevel >= level && this.maxLevel <= level && !!contextName.match(this.regExpContextFilter);
     }
 
     log(level: LogLevel, data: object): void {

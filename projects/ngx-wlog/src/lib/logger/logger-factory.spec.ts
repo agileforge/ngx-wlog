@@ -1,4 +1,5 @@
 import { LoggerFactory } from './logger-factory';
+import {ContextualLogger} from './contextual-logger';
 
 describe('LoggerFactory', () => {
 
@@ -9,7 +10,8 @@ describe('LoggerFactory', () => {
             const logger = LoggerFactory.createLogger('SomeContextName');
 
             // Assert
-            expect(logger.contextName).toBe('SomeContextName');
+            expect(logger).toBeInstanceOf(ContextualLogger);
+            expect((logger as ContextualLogger).contextName).toBe('SomeContextName');
         });
 
     });

@@ -2,6 +2,8 @@ import {LogLevel} from './log-level.enum';
 
 export interface LoggerRuleConfig {
     name: string;
-    minLevel: LogLevel;
     writeTo: string;
+    active?: boolean;
+    minLevel?: LogLevel;
+    maxLevel?: LogLevel;
 }

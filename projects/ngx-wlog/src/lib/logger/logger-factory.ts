@@ -7,6 +7,7 @@ import {ContextualLogger} from './contextual-logger';
 import {StructuredLogger} from './structured-logger';
 import {FilteredStructuredLogger} from './filtered-structured-logger';
 import {StructuredLoggerWriter} from './structured-logger-writer';
+import {LogLevel} from '../config/log-level.enum';
 
 /**
  * Factory that allow to create loggers according the configuration.
@@ -39,6 +40,7 @@ export class LoggerFactory {
 
     private static buildLoggers(config: WlogConfig): StructuredLogger[] {
         return config.rules
+            .filter(rule => rule.active ?? true)
             .map(rule => LoggerFactory.buildRuleLoggers(rule, config))
             .reduce((res, cur) => res.concat(...cur), []);
     }
@@ -64,7 +66,11 @@ export class LoggerFactory {
     private static buildTargetLogger(rule: LoggerRuleConfig, targetConfig: TargetConfig): StructuredLogger {
         const writer = new StructuredLoggerWriter(targetConfig.appender, targetConfig.options);
         const nameRegExp = new RegExp(rule.name);
-        return new FilteredStructuredLogger(writer, nameRegExp, rule.minLevel);
+        return new FilteredStructuredLogger(
+            writer,
+            nameRegExp,
+            rule.minLevel ?? LogLevel.Trace,
+            rule.maxLevel ?? LogLevel.Fatal);
     }
 
 }

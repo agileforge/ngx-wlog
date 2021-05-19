@@ -55,4 +55,8 @@ export class ContextualLogger implements Logger {
         this.logWithContextName(LogLevel.Warning, message, optionalParams);
     }
 
+    log(level: LogLevel, message: string, ...optionalParams: any[]): void {
+        this.logWithContextName(level, message, optionalParams);
+    }
+
 }
