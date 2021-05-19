@@ -1,6 +1,6 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
-import {WlogConfigService} from './config/wlog-config.service';
-import {WlogConfig} from './config/wlog-config';
+import {DEFAULT_WLOG_CONFIG, WlogConfig} from './config/wlog-config';
+import {LoggerFactory} from './logger/logger-factory';
 
 @NgModule({
     declarations: [],
@@ -8,15 +8,11 @@ import {WlogConfig} from './config/wlog-config';
     exports: []
 })
 export class NgxWlogModule {
-    public static forRoot(config: WlogConfig): ModuleWithProviders<NgxWlogModule> {
-        const wlogConfigService = new WlogConfigService();
-        WlogConfigService.config = config;
+    public static forRoot(config: WlogConfig | undefined): ModuleWithProviders<NgxWlogModule> {
+        LoggerFactory.reload(config ?? DEFAULT_WLOG_CONFIG);
         return {
             ngModule: NgxWlogModule,
-            providers: [
-                {provide: WlogConfigService, useValue: wlogConfigService}
-                // LoggerService => To implements to allow to inject
-            ]
+            providers: []
         };
     }
 }
