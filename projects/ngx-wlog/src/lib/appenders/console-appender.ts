@@ -1,22 +1,23 @@
 import {LogLevel} from '../config/log-level.enum';
 import {Appender} from './appender';
+import {ConsoleWrapper} from './console-wrapper';
 
 export class ConsoleAppender implements Appender {
 
-    constructor(private options: any) {
+    constructor(private options: any, private consoleWrapper: ConsoleWrapper = new ConsoleWrapper()) {
     }
 
     append(level: LogLevel, data: any): void {
         switch (level) {
             case LogLevel.Warning:
-                console.warn(...Object.values(data));
+                this.consoleWrapper.warn(...Object.values(data));
                 break;
             case LogLevel.Error:
             case LogLevel.Fatal:
-                console.error(...Object.values(data));
+                this.consoleWrapper.error(...Object.values(data));
                 break;
             default:
-                console.log(...Object.values(data));
+                this.consoleWrapper.log(...Object.values(data));
                 break;
         }
     }
