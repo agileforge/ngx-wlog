@@ -21,7 +21,7 @@ export class FilteredStructuredLogger implements StructuredLogger {
     }
 
     private loggerMatchFilter(level: LogLevel, contextName: string): boolean {
-        return level >= this.minLevel && level <= this.maxLevel && !!contextName.match(this.regExpContextFilter);
+        return level >= this.minLevel && level <= this.maxLevel && this.regExpContextFilter.test(contextName);
     }
 
     log(level: LogLevel, data: object): void {

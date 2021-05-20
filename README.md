@@ -3,8 +3,8 @@
 NgxWlog (Angular Web Log) is an Angular logger that is inspired by the known [NLog](https://nlog-project.org/) .NET logger.
 
 Main feature are:
-* Create named loggers from static method. Logger is not injectable so that 
-  you can even use it un static methods or non injected classes.
+* Create named loggers from static method. Logger is not injectable so that
+  you can even use it on static methods or non injected classes.
 * Configure multiple loggers with filters and targets
 * Manage log levels
 * Reconfigure logs at runtime
@@ -49,7 +49,7 @@ export class AppModule {
 
 ## Create loggers
 
-In your code your can create logger everywhere, simply by calling 
+In your code your can create logger everywhere, simply by calling
 ```typescript
  LoggerFactory.createLogger('SomeLoggerName')
 ```
@@ -106,7 +106,7 @@ log.info('Some message');
 
 ### Runtime configuration change
 
-You can change the NgxWlog configuration at runtime. For that, prepare your 
+You can change the NgxWlog configuration at runtime. For that, prepare your
 new configuration and simply call the `LoggerFactory.reload(config: WlogConfig)`
 method.
 
@@ -234,7 +234,7 @@ of `console`.
 
 The `ColoredConsoleAppender` log to the browser `console`, but modify layout with colors.
 
-![ColoredConsole.example.png](doc.res/ColoredConsole.example.png)
+![ColoredConsole.example.png](projects/ngx-wlog/doc.res/ColoredConsole.example.png)
 
 ### Custom appender
 
