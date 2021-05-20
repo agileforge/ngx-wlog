@@ -5,7 +5,7 @@ import {ConsoleWrapper} from './console-wrapper';
 export class ConsoleAppender implements Appender {
 
     constructor(private options: any, private readonly consoleWrapper: ConsoleWrapper = new ConsoleWrapper()) {
-        this.consoleWrapper = options.consoleWrapper ?? this.consoleWrapper;
+        this.consoleWrapper = options?.consoleWrapper ?? this.consoleWrapper;
     }
 
     append(level: LogLevel, data: any): void {
