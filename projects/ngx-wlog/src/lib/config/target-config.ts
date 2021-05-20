@@ -18,5 +18,5 @@ export interface TargetConfig {
     /**
      * Parameters for the appender.
      */
-    options?: { [key: string]: string };
+    options?: any;
 }

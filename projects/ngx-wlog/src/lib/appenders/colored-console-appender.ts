@@ -4,7 +4,8 @@ import {ConsoleWrapper} from './console-wrapper';
 
 export class ColoredConsoleAppender implements Appender {
 
-    constructor(private options: any, private consoleWrapper: ConsoleWrapper = new ConsoleWrapper()) {
+    constructor(private options: any, private readonly consoleWrapper: ConsoleWrapper = new ConsoleWrapper()) {
+        this.consoleWrapper = options.consoleWrapper ?? this.consoleWrapper;
     }
 
     append(level: LogLevel, data: any): void {

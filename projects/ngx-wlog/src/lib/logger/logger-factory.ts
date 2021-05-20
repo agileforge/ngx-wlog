@@ -65,10 +65,9 @@ export class LoggerFactory {
 
     private static buildTargetLogger(rule: LoggerRuleConfig, targetConfig: TargetConfig): StructuredLogger {
         const writer = new StructuredLoggerWriter(targetConfig.appender, targetConfig.options);
-        const nameRegExp = new RegExp(rule.name);
         return new FilteredStructuredLogger(
             writer,
-            nameRegExp,
+            rule.name,
             rule.minLevel ?? LogLevel.Trace,
             rule.maxLevel ?? LogLevel.Fatal);
     }
