@@ -11,14 +11,14 @@ export class ConsoleAppender implements Appender {
     append(level: LogLevel, data: any): void {
         switch (level) {
             case LogLevel.Warning:
-                this.consoleWrapper.warn(...Object.values(data));
+                this.consoleWrapper.warn(data.message, ...data.optionalParams ?? []);
                 break;
             case LogLevel.Error:
             case LogLevel.Fatal:
-                this.consoleWrapper.error(...Object.values(data));
+                this.consoleWrapper.error(data.message, ...data.optionalParams ?? []);
                 break;
             default:
-                this.consoleWrapper.log(...Object.values(data));
+                this.consoleWrapper.log(data.message, ...data.optionalParams ?? []);
                 break;
         }
     }
