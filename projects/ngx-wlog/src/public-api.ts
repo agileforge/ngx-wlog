@@ -11,6 +11,7 @@ export * from './lib/appenders/appender';
 export * from './lib/appenders/console-appender';
 export * from './lib/appenders/colored-console-appender';
 
+export * from './lib/logger/logger';
 export * from './lib/logger/logger-factory';
 
 export * from './lib/ngx-wlog.module';
